@@ -1,0 +1,17 @@
+{
+    "name": "askedio/l5cp-user",
+    "description": "User Management Module for LaravelCP v2",
+    "keywords": ["user", "rbac", "admin", "management", "control panel", "laravel"],
+    "license": "MIT",
+    "type": "library",
+    "require": {
+        "php": ">=5.5.9",
+        "laravel/framework": "5.1.*",
+        "askedio/laravelcp": "dev-master"
+     },
+    "autoload": {
+        "psr-4": {
+            "Askedio\\Laravelcp\\User\\": "src/"
+        }
+    }
+}
