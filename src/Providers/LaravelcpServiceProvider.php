@@ -31,8 +31,23 @@ class LaravelcpServiceProvider extends ServiceProvider
    */
   public function boot()
   {
+    $this->loadTranslationsFrom(realpath(__DIR__.'/../Resources/Lang'), 'l5cp-user');
 
-    NavigationHelper::Add(['nav' => 'main', 'sort' => '1', 'link' => url('/module'), 'title' => 'Module', 'icon' => 'fa-cubes']);
+    /*$submenu = [['nav' => 'main',
+      'sort' => '1', 
+      'link' => url('/admin/users'), 
+      'title' => trans_choice('l5cp-user::default.user', 2)
+     ]];*/
+
+    NavigationHelper::Add([
+      'nav' => 'main',
+      'sort' => '1', 
+      'link' => url('/admin/users'), 
+      'title' => trans_choice('l5cp-user::default.user', 2), 
+      'icon' => 'fa-users',
+      //'submenu' => $submenu
+    ]);
+
     HookHelper::Add(['hook' => 'dashboard', 'template' => 'l5cp-user::dashboard.welcome', 'sort' => '1']);
     SearchHelper::Add(
       ['model' => 'Askedio\Laravelcp\Models\User', 
@@ -40,7 +55,7 @@ class LaravelcpServiceProvider extends ServiceProvider
       'var' => 'user', 
       'columns' => ['email', 'name', 'id'], 
       'actions' => ['id' => 
-            ['method'=>'link', 'action'=>'admin/users/?/edit']
+            ['method'=>'link', 'action'=>'/admin/users/?/edit']
            ]]
       
      );
@@ -49,8 +64,6 @@ class LaravelcpServiceProvider extends ServiceProvider
     if (! $this->app->routesAreCached()) {
       require realpath(__DIR__.'/../Http/routes.php');
     }
-
-    $this->loadTranslationsFrom(realpath(__DIR__.'/../Resources/Lang'), 'l5cp-user');
 
     $this->loadViewsFrom(realpath(__DIR__.'/../Resources/Views'), 'l5cp-user');
 

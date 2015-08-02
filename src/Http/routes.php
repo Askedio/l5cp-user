@@ -11,5 +11,15 @@
 |
 */
 
+# Admin group
+Route::group([
+    'as' => 'dashboard',
+    'middleware' => 'role:admin',
+  ],
+  function () {
 
-Route::resource('module', 'Askedio\Laravelcp\User\Http\Controllers\HomeController');
+    # User routes
+    Route::resource('admin/users', 'Askedio\Laravelcp\User\Http\Controllers\HomeController');
+
+  }
+);
