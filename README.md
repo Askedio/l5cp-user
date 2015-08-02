@@ -14,3 +14,5 @@ Providers
      Askedio\Laravelcp\Providers\LaravelcpServiceProvider::class,
      Askedio\Laravelcp\User\Providers\LaravelcpServiceProvider::class,
      
+
+![screenshot](http://i.imgur.com/b8zPe99.png)
