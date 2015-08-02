@@ -10,6 +10,7 @@ Require
 
 
 Providers
+    
      Askedio\Laravelcp\Providers\LaravelcpServiceProvider::class,
      
      Askedio\Laravelcp\Module\User\LaravelcpServiceProvider::class,
