@@ -18,8 +18,9 @@ Route::group([
   ],
   function () {
 
-    # User routes
     Route::resource('admin/users', 'Askedio\Laravelcp\User\Http\Controllers\HomeController');
+    Route::resource('admin/roles', 'Askedio\Laravelcp\User\Http\Controllers\RolesController');
+    Route::resource('admin/permissions', 'Askedio\Laravelcp\User\Http\Controllers\PermsController');
 
   }
 );

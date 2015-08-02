@@ -33,12 +33,12 @@ class UserHelper
       ->orWhere('email', 'LIKE', '%'.session('l5cp-user-search').'%')
       ->paginate(session('l5cp-user-limit'));
 
-    return view('l5cp-user::welcome')->withRoles(Role::all())->withUsers($users);
+    return view('l5cp-user::user.index')->withRoles(Role::all())->withUsers($users);
   }
 
   public static function create($request)
   {
-    return view('l5cp-user::create_edit')->withRoles(Role::all());
+    return view('l5cp-user::user.create_edit')->withRoles(Role::all());
   }
 
   public static function store($request)
@@ -51,7 +51,7 @@ class UserHelper
   public static function edit($id, $request)
   {
     $user = User::findOrFail($id);
-    return view('l5cp-user::create_edit')->withRoles(Role::all())->withUser($user);
+    return view('l5cp-user::user.create_edit')->withRoles(Role::all())->withUser($user);
   }
 
   public static function update($id, $request)

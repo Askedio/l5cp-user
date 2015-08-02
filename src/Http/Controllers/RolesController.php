@@ -5,20 +5,20 @@ namespace Askedio\Laravelcp\User\Http\Controllers;
 use Askedio\Laravelcp\Models\User;
 use Askedio\Laravelcp\Models\Role;
 
-use Askedio\Laravelcp\User\Helpers\UserHelper as Helper;
+use Askedio\Laravelcp\User\Helpers\RoleHelper as Helper;
 
-use Askedio\Laravelcp\User\Http\Requests\CreatePostRequest;
-use Askedio\Laravelcp\User\Http\Requests\StorePostRequest;
-use Askedio\Laravelcp\User\Http\Requests\UpdatePostRequest;
-use Askedio\Laravelcp\User\Http\Requests\DestroyPostRequest;
-use Askedio\Laravelcp\User\Http\Requests\EditRequest;
-use Askedio\Laravelcp\User\Http\Requests\IndexRequest;
+use Askedio\Laravelcp\User\Http\Requests\Role\CreatePostRequest;
+use Askedio\Laravelcp\User\Http\Requests\Role\StorePostRequest;
+use Askedio\Laravelcp\User\Http\Requests\Role\UpdatePostRequest;
+use Askedio\Laravelcp\User\Http\Requests\Role\DestroyPostRequest;
+use Askedio\Laravelcp\User\Http\Requests\Role\EditRequest;
+use Askedio\Laravelcp\User\Http\Requests\Role\IndexRequest;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as Controller;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
-class HomeController extends Controller
+class RolesController extends Controller
 {
   public function index(IndexRequest $request)
   {

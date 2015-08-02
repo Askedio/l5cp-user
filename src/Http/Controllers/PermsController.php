@@ -5,20 +5,20 @@ namespace Askedio\Laravelcp\User\Http\Controllers;
 use Askedio\Laravelcp\Models\User;
 use Askedio\Laravelcp\Models\Role;
 
-use Askedio\Laravelcp\User\Helpers\UserHelper as Helper;
+use Askedio\Laravelcp\User\Helpers\PermHelper as Helper;
 
-use Askedio\Laravelcp\User\Http\Requests\CreatePostRequest;
-use Askedio\Laravelcp\User\Http\Requests\StorePostRequest;
-use Askedio\Laravelcp\User\Http\Requests\UpdatePostRequest;
-use Askedio\Laravelcp\User\Http\Requests\DestroyPostRequest;
-use Askedio\Laravelcp\User\Http\Requests\EditRequest;
-use Askedio\Laravelcp\User\Http\Requests\IndexRequest;
+use Askedio\Laravelcp\User\Http\Requests\Perm\CreatePostRequest;
+use Askedio\Laravelcp\User\Http\Requests\Perm\StorePostRequest;
+use Askedio\Laravelcp\User\Http\Requests\Perm\UpdatePostRequest;
+use Askedio\Laravelcp\User\Http\Requests\Perm\DestroyPostRequest;
+use Askedio\Laravelcp\User\Http\Requests\Perm\EditRequest;
+use Askedio\Laravelcp\User\Http\Requests\Perm\IndexRequest;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as Controller;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 
-class HomeController extends Controller
+class PermsController extends Controller
 {
   public function index(IndexRequest $request)
   {

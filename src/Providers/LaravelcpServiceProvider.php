@@ -33,11 +33,23 @@ class LaravelcpServiceProvider extends ServiceProvider
   {
     $this->loadTranslationsFrom(realpath(__DIR__.'/../Resources/Lang'), 'l5cp-user');
 
-    /*$submenu = [['nav' => 'main',
-      'sort' => '1', 
-      'link' => url('/admin/users'), 
-      'title' => trans_choice('l5cp-user::default.user', 2)
-     ]];*/
+    $submenu = [
+       ['nav' => 'main',
+        'sort' => '1', 
+        'link' => url('/admin/users/create'), 
+        'title' => trans('lcp::button.create')
+       ],
+       ['nav' => 'main',
+        'sort' => '1', 
+        'link' => url('/admin/roles'), 
+        'title' => trans_choice('l5cp-user::default.role', 2)
+       ],
+       ['nav' => 'main',
+        'sort' => '1', 
+        'link' => url('/admin/permissions'), 
+        'title' => trans_choice('l5cp-user::default.permission', 2)
+       ],
+     ];
 
     NavigationHelper::Add([
       'nav' => 'main',
@@ -45,10 +57,11 @@ class LaravelcpServiceProvider extends ServiceProvider
       'link' => url('/admin/users'), 
       'title' => trans_choice('l5cp-user::default.user', 2), 
       'icon' => 'fa-users',
-      //'submenu' => $submenu
+      'submenu' => $submenu
     ]);
 
     HookHelper::Add(['hook' => 'dashboard', 'template' => 'l5cp-user::dashboard.welcome', 'sort' => '1']);
+
     SearchHelper::Add(
       ['model' => 'Askedio\Laravelcp\Models\User', 
       'name' => 'User', 
